@@ -1,8 +1,38 @@
 const http = require('http');
+const fs = require('fs');
+
 const server = http.createServer((req,res)=>{
     if (req.url === '/') {
-        res.setHeader("Content-type","text/html");
-        res.end('<html><head><title>My Portfolio</title></head><body><p>Name:<span id="name"></span></p><p>Profession:<span id="career"></span></p><p>Skills:<span id="skills"></span></p></body></html>');
+        fs.readFile('index.html',(err,data)=>{
+            if (err) {
+                throw console.error(err);
+            }
+            res.writeHead(200,"Success",{"content-type":"text/html"});
+            res.write(data);
+            res.end();
+        })
+    }
+
+    if (req.url === '/about') {
+        fs.readFile('about.html',(err,data)=>{
+            if (err) {
+                throw console.error(err);
+            }
+            res.writeHead(200,"Success",{"content-type":"text/html"});
+            res.write(data);
+            res.end();
+        })
+    }
+
+    if (req.url === '/contact') {
+        fs.readFile('contact.html',(err,data)=>{
+            if (err) {
+                throw console.error(err);
+            }
+            res.writeHead(200,"Success",{"content-type":"text/html"});
+            res.write(data);
+            res.end();
+        })
     }
 })
 server.listen(3000)
