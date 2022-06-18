@@ -10,7 +10,7 @@ const server = http.createServer((req,res)=>{
             res.writeHead(200,"Success",{"content-type":"text/html"});
             res.write(data);
             res.end();
-        })
+        });
     }
 
     if (req.url === '/about') {
@@ -21,7 +21,7 @@ const server = http.createServer((req,res)=>{
             res.writeHead(200,"Success",{"content-type":"text/html"});
             res.write(data);
             res.end();
-        })
+        });
     }
 
     if (req.url === '/contact') {
@@ -32,7 +32,7 @@ const server = http.createServer((req,res)=>{
             res.writeHead(200,"Success",{"content-type":"text/html"});
             res.write(data);
             res.end();
-        })
+        });
     }
 })
 server.listen(3000)
